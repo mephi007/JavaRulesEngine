@@ -20,7 +20,7 @@ public class PromotionRule {
         }
         return promotionRule;
     }
-    public void setSKUIDwithRate(String skuId, int rate){
+    public void setSKUIDWithRate(String skuId, int rate){
         getPromotionRate.put(skuId, rate);
     }
     public int getSKUIDRate(String skuId){
