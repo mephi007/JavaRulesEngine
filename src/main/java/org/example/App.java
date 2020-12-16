@@ -19,18 +19,26 @@ public class App
             Scanner in = new Scanner(System.in);
             System.out.println("Enter SKU id");
             String skuId = in.next();
-            System.out.println("Enter Quantity");
-            int quantity = in.nextInt();
+            ValidSKUID validSKUID = ValidSKUID.getInstance();
+            if(validSKUID.containsSKUID(skuId)) {
+                System.out.println("Enter Quantity");
+                 int quantity = in.nextInt();
+                cartList.put(skuId, cartList.getOrDefault(skuId,0)+quantity);
+            }else{
+                System.out.println("SKUID do not exist");
+            }
             System.out.println("Do you want to add more items to cart, write as \"yes\" or \"no\" ");
-            cartList.put(skuId, cartList.getOrDefault(skuId,0)+quantity);
             ans = in.next();
         }while(ans.equals("yes"));
         if(!cartList.isEmpty()){
+            System.out.println("Items in the Cart:");
             for(Entry<String, Integer> pr : cartList.entrySet()){
                 System.out.println(pr.getKey()+" "+pr.getValue());
             }
             Checkout checkout = new Checkout();
-            System.out.println(checkout.processItem(cartList));
+            System.out.println("Total Payable Amount "+checkout.processItem(cartList));
+        }else{
+            System.out.println("Cart is Empty");
         }
     }
 }
