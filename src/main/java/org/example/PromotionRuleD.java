@@ -3,6 +3,7 @@ package org.example;
 public class PromotionRuleD implements IPromotions {
     @Override
     public double applyPromotionRules(int quantity) {
-        return 0;
+        PromotionRule promotionRule = PromotionRule.getInstance();
+        return quantity*promotionRule.getSKUIDRate("D");
     }
 }

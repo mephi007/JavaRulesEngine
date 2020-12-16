@@ -21,7 +21,6 @@ public class App
             String skuId = in.next();
             System.out.println("Enter Quantity");
             int quantity = in.nextInt();
-            Product product = new Product(SKU.valueOf(skuId), quantity);
             System.out.println("Do you want to add more items to cart, write as \"yes\" or \"no\" ");
             cartList.put(skuId, cartList.getOrDefault(skuId,0)+quantity);
             ans = in.next();
@@ -31,7 +30,7 @@ public class App
                 System.out.println(pr.getKey()+" "+pr.getValue());
             }
             Checkout checkout = new Checkout();
-            checkout.processItem(cartList);
+            System.out.println(checkout.processItem(cartList));
         }
     }
 }

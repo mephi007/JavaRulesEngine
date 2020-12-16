@@ -11,6 +11,7 @@ public class PromotionRule {
         getPromotionRate.put("B", 30);
         getPromotionRate.put("C", 20);
         getPromotionRate.put("D", 15);
+        getPromotionRate.put("CD", 30);
         getPromotionRate.put("3A", 130);
         getPromotionRate.put("2B", 45);
     }
