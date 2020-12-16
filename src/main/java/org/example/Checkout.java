@@ -17,6 +17,8 @@ public class Checkout {
             }else if(pr.getKey().equals("B")){
                 promtionsRule = new PromotionRuleB();
             }
+
+            payableAmt += promtionsRule.applyPromotionRules(pr.getValue());
         }
     }
 }
