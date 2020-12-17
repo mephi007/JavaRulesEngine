@@ -63,13 +63,17 @@ public class Checkout {
             quantity = cartList.get(counter);
             leftover = pr.getValue() - cartList.get(counter);
             leftoverOfCD.put(pr.getKey(), leftover);
-            cartList.put(counter, 0);
-        }else if(pr.getValue() <= cartList.get(counter)){
+        }else if(pr.getValue() < cartList.get(counter)){
             quantity = pr.getValue();
             leftover = cartList.get(counter) - pr.getValue();
             leftoverOfCD.put(counter, leftover);
         }
-
+        else{
+            quantity = pr.getValue();
+            leftover = cartList.get(counter) - pr.getValue();
+            leftoverOfCD.put(counter, leftover);
+        }
+        cartList.put(counter,0);
         return quantity;
     }
 }
